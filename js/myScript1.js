@@ -1,15 +1,3 @@
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    var b = document.getElementById("bar");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-        b.className = "fas fa-times";
-    } else {
-        x.className = "topnav";
-        b.className = "fa fa-plus";
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
   const dropdownBtn = document.getElementById('dropdown-btn');
   const myDropdown = document.getElementById('my-dropdown');
@@ -25,3 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   const myNavbar = document.getElementById('myTopnav');
 });
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    var b = document.getElementById("bar");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+        b.className = "fas fa-times";
+    } else {
+        x.className = "topnav";
+        b.className = "fa fa-plus";
+    }
+}
