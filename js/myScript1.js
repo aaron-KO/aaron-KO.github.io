@@ -24,8 +24,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   const myNavbar = document.getElementById('myTopnav');
-  const hamburgerMenu = document.getElementById('hamburger-menu');
-  hamburgerMenu.addEventListener('click', function() {
-    myNavbar.classList.toggle('responsive')
-  });
 });
