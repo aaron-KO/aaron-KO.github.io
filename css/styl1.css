@@ -121,5 +121,22 @@ h1, #name{
   }
 }
 
+@media screen and (max-width: 600px) {
+  // The below prevents the dropdown from displaying under the assignments tab when the responsive menu is expanded.
+  // .navbar.responsive {position: relative;}
+  .navbar.responsive a.icon {
+    position: absolute;
+    // Adding a margin repositions the hamburger menu correctly because we took off the relative position on the navbar.
+    margin: 0.5rem;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
 
 }
