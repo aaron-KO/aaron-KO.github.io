@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
       myDropdown.classList.remove('show');
     }
   });
-  const myNavbar = document.getElementById('my-navbar');
+  const myNavbar = document.getElementById('myTopnav');
   const hamburgerMenu = document.getElementById('hamburger-menu');
   hamburgerMenu.addEventListener('click', function() {
     myNavbar.classList.toggle('responsive')
