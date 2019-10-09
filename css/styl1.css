@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0c27;
+}
+
+#primary{
+  padding-top: 60px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+h1, #name{
+  text-align: center;
+  color: #fff;
+}
+
+.topnav{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: -4px 8px 16px 0px rgba(0,0,0,0.35);
+}
+
+#primary a{
+	color: #000;
+	font-size: 200px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.topnav a{
+  float: left;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover{
+  color: #999;
+  transition: all 0.25s;
+}
+
+.topnav .fas fa-times{
+  transition: all 0.25s;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: left;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    float: none;
+    text-align: left;
+    display: block;
+    border-bottom: 1px solid #555;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+}
+
+.css-doodle {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
