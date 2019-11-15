@@ -57,6 +57,13 @@
 				<a href="browsGeo.html">Geolocation </a>
 			</div>
 		</div>
+		<div class="dropdown">
+		  <button class="dropbtn">Search</button>
+		  <div class="dropdown-content">
+		    <a href="browsNavig.html">File Search</a>
+		    <a href="googleSearch.html">Google Search</a>
+		  </div>
+		</div>
   </div>
 
 	<div id="searchfield">
@@ -82,38 +89,8 @@
 	    </div>
 
 	  </div>
-		<div id="resultfield"></div>
-		<div id="searchfield">
-						<div class="input-group">
-										<div class="input-group-prepend">
-														<button class="btn btn-outline-secondary" id="submit" type="button"
-																		onclick="getResult(); return false;">Browse</button>
+		<div id="resultfield">
 
-										</div>
-										<input id="inputValue" class="form-control form-control-lg" type="text" placeholder="search...">
-										<div class="input-group-append">
-														<div class="dropdown">
-																		<button class="btn btn-secondary btn-lg dropdown-toggle" type="button"
-																						id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-																						aria-expanded="false">
-																						choose file to save
-																		</button>
-																		<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-																						<button class="dropdown-item" type="button"
-																										onclick="saveAsJson(); return false">save as
-																										JSON</button>
-																						<button class="dropdown-item" type="button"
-																										onclick="saveAsCsv(); return false">save as
-																										CSV</button>
-																						<button class="dropdown-item" type="button"
-																										onclick="saveAsXml(); return false">save as
-																										XML</button>
-																		</div>
-														</div>
-										</div>
-						</div>
-
-		</div>
 
 		        <script>
 
@@ -275,7 +252,7 @@
 
 		        </script>
 
-
+</div>
 
 </body>
 
