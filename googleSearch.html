@@ -84,13 +84,8 @@
 <div class="bg-image"></div>
 	<div id="searchfield">
 	    <div class="input-group">
-	      <div class="input-group-prepend">
-	        <button class="btn btn-outline-secondary" id="submit" type="button"
-	          onclick="getResult(); return false;">Submit
-					</button>
 
-	      </div>
-	      <input id="inputValue" class="form-control form-control-lg" type="text" placeholder="search...">
+	      <input id="inputValue" class="form-control form-control-lg" type="text"  placeholder="search...">
 	      <div class="input-group-append">
 	        <div class="dropdown">
 	          <button class="dropbtn" type="button"
@@ -111,7 +106,12 @@
 
 
 		        <script>
-
+										document.getElementById("inputValue").addEventListener('keypress', function (e) {
+										    var key = e.which || e.keyCode;
+										    if (key === 13) { // 13 is enter
+										      getResult()；
+										    }
+										});
 		                function getResult() {
 		                        let inputValue = document.getElementById("inputValue").value;
 		                        var endpoint = "https://www.googleapis.com/customsearch/v1?";
