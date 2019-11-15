@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Aaron Ko">
+	<title>File Search</title>
+
+
+
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="css/styl1.css">
+		<style>
+				body {
+				  background-color: lightblue;
+				}
+
+				h1 {
+				  color: white;
+				  text-align: center;
+				}
+
+				p {
+					  font-family: verdana;
+					  font-size: 20px;
+					}
+				}
+		</style>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="topnav" id="myTopnav">
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-plus" id = "bar"></i>
+    </a>
+     <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Course</button>
+      <div class="dropdown-content">
+        <a href="https://learn.zybooks.com/#/signin">Zybook</a>
+        <a href="https://app.tophat.com">TopHat</a>
+        <a href="https://drive.google.com/drive/folders/1AsHhIFfQ3yNE_m2z4wswRfKh77K0UH9w">Course Google Drive</a>
+        <a href="https://www.w3schools.com/">W3Schools </a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">About</button>
+      <div class="dropdown-content">
+        <a href="aboutME.html">Developers</a>
+        <a href="aboutEmail.html">Contact Us</a>
+      </div>
+    </div>
+		<div class="dropdown">
+			<button class="dropbtn">Browser</button>
+			<div class="dropdown-content">
+				<a href="browsNavig.html">Navigator</a>
+				<a href="browsWin.html">Window</a>
+				<a href="browsScreen.html">Screen </a>
+				<a href="browsLocat.html">Location </a>
+				<a href="browsGeo.html">Geolocation </a>
+			</div>
+		</div>
+		<div class="dropdown">
+		  <button class="dropbtn">Search</button>
+		  <div class="dropdown-content">
+		    <a href="fileSearch.html">File Search</a>
+		    <a href="googleSearch.html">Google Search</a>
+		  </div>
+		</div>
+  </div>
+<div class="bg-image"></div>
+	<div id="searchfield">
+    <div class="input-group row">
+      <div class="custom-file col-sm-6">
+        <input type="file" class="custom-file-input form-control-lg p-0" id="customFile">
+      </div>
+
+      <div class="input-group-append">
+        <div class="dropdown">
+          <button class="dropbtn" type="button"
+            id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">choose file to save
+          </button>
+          <div class="dropdown-content" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button" onclick="saveAsJson(); return false">save as JSON</button>
+            <button class="dropdown-item" type="button" onclick="saveAsCsv(); return false">save as CSV</button>
+            <button class="dropdown-item" type="button" onclick="saveAsXml(); return false">save as XML</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	  </div>
+		<div id="resultfield">
+
+
+      <script>
+          var fileName;
+          var i = 0;
+          $(".custom-file-input").on("change", function () {
+              fileName = $(this).val().split("\\").pop();
+              $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+              i = fileName.length - 1;
+          });
+
+
+
+          const input = document.querySelector('input[type="file"]');
+          input.addEventListener('change', function (e) {
+              console.log(input.files);
+              const reader = new FileReader();
+              reader.onload = function () {
+                  console.log(reader.result);
+
+                  if (fileName[i] === "n") {
+                      var res = JSON.parse(reader.result);
+                      var result = res.Result;
+                      var txt = "<input class='form-check-input' type='checkbox' onclick='selectAll(this);'><h5><i><b>select all</b></i></h5></br></br>";
+                      for (let i = 0; i < result.length; i++) {
+                          console.log(result[i].title);
+                          txt += "<input class='form-check-input position-static' type='checkbox' name='foo' id='option" + i + "'><h6>" + result[i].title + "</h6>" + "<a target='_blank' href=" + result[i].url + ">" + result[i].url + "</a>";
+                          txt += "<p>" + result[i].description + "</p>";
+                      }
+                      document.getElementById("resultfield").innerHTML = txt;
+
+
+                  } else if (fileName[i] === "v") {
+
+                      var res = reader.result.split('\n');
+                      var txt = "<input class='form-check-input' type='checkbox' onclick='selectAll(this);'><h5><i><b>select all</b></i></h5></br></br>";
+                      for (let i = 0; i < res.length - 1; i++) {
+                          var result = res[i].split(',');
+                          console.log(result[0]);
+                          txt += "<input class='form-check-input position-static' type='checkbox' name='foo' id='option" + i + "'><h6>" + result[0] + "</h6>" + "<a target='_blank' href=" + result[1] + ">" + result[1] + "</a>";
+                          txt += "<p>" + result[2] + "</p>";
+                      }
+                      document.getElementById("resultfield").innerHTML = txt;
+
+
+
+                  } else {
+                      var parser, xmlDoc;
+                      parser = new DOMParser();
+                      xmlDoc = parser.parseFromString(reader.result, "text/xml");
+                      var len = xmlDoc.getElementsByTagName("result").length;
+                      var txt = "<input class='form-check-input' type='checkbox' onclick='selectAll(this);'><h5><i><b>select all</b></i></h5></br></br>";
+                      for (let i = 0; i < len; i++) {
+                          txt += "<input class='form-check-input position-static' type='checkbox' name='foo' id='option" + i + "'><h6>" + xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue + "</h6>" + "<a target='_blank' href=" + xmlDoc.getElementsByTagName("url")[i].childNodes[0].nodeValue + ">" + xmlDoc.getElementsByTagName("url")[i].childNodes[0].nodeValue + "</a>";
+                          txt += "<p>" + xmlDoc.getElementsByTagName("description")[i].childNodes[0].nodeValue + "</p>";
+                      }
+                      document.getElementById("resultfield").innerHTML = txt;
+
+                  }
+
+
+
+
+              }
+              reader.readAsText(input.files[0]);
+          }, false);
+
+
+
+
+          function selectAll(source) {
+              var options = document.getElementsByClassName("form-check-input");
+              for (var i = 0; i < options.length; i++) {
+                  options[i].checked = source.checked;
+              }
+          }
+
+
+          function saveAsJson() {
+              var check = document.getElementsByClassName('form-check-input');
+              var selected = new Array();
+              for (var i = 1; i < check.length; i++) {
+                  if (check[i].checked == true) {
+                      selected.push(check[i].id);
+                  }
+              }
+
+              if (selected.length == 0) {
+                  window.alert("at least choose one result");
+                  return;
+              }
+
+              var data = { "Result": [] };
+              for (var i = 0; i < selected.length; i++) {
+                  var x = document.getElementById(selected[i]);
+                  var title = x.nextElementSibling.innerText;
+                  var url = x.nextElementSibling.nextElementSibling.innerText;
+                  var desc = x.nextElementSibling.nextElementSibling.nextElementSibling.innerText;
+                  data.Result.push({ "title": title, "url": url, "description": desc });
+              }
+              data = JSON.stringify(data)
+
+              console.log(data);
+
+              var hiddenElement = document.createElement('a');
+              hiddenElement.href = 'data:text/json;charset=utf-8,' + encodeURI(data);
+              hiddenElement.target = '_blank';
+              hiddenElement.download = 'searchresults.json';
+              hiddenElement.click();
+          }
+
+          function saveAsCsv() {
+              var check = document.getElementsByClassName('form-check-input');
+              var selected = new Array();
+              for (var i = 1; i < check.length; i++) {
+                  if (check[i].checked == true) {
+                      selected.push(check[i].id);
+                  }
+              }
+
+              if (selected.length == 0) {
+                  window.alert("at least choose one result");
+                  return;
+              }
+
+              var data = "";
+              for (var i = 0; i < selected.length; i++) {
+                  var x = document.getElementById(selected[i]);
+                  var title = x.nextElementSibling.innerText;
+                  var url = x.nextElementSibling.nextElementSibling.innerText;
+                  var desc = x.nextElementSibling.nextElementSibling.nextElementSibling.innerText;
+                  data += '"' + title + '","' + url + '","' + desc + '"' + '\n';
+              }
+
+              console.log(data);
+              var hiddenElement = document.createElement('a');
+              hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(data);
+              hiddenElement.target = '_blank';
+              hiddenElement.download = 'searchresults.csv';
+              hiddenElement.click();
+          }
+
+
+          function saveAsXml() {
+              var check = document.getElementsByClassName('form-check-input');
+              var selected = new Array();
+              for (var i = 1; i < check.length; i++) {
+                  if (check[i].checked == true) {
+                      selected.push(check[i].id);
+                  }
+              }
+
+              if (selected.length == 0) {
+                  window.alert("at least choose one result");
+                  return;
+              }
+
+              var data = "<?xml version='1.0' encoding='UTF-8'?>\n<results>\n";
+              for (var i = 0; i < selected.length; i++) {
+                  var x = document.getElementById(selected[i]);
+                  var title = x.nextElementSibling.innerText;
+                  var url = x.nextElementSibling.nextElementSibling.innerText;
+                  var desc = x.nextElementSibling.nextElementSibling.nextElementSibling.innerText;
+                  data += "<result>\n<title>" + title + "</title>\n<url>" + url + "</url>\n<description>" + desc + "</description>\n</result>\n"
+              }
+              data += "</results>";
+
+              console.log(data);
+
+              var hiddenElement = document.createElement('a');
+              hiddenElement.href = 'data:text/xml;charset=utf-8,' + encodeURI(data);
+              hiddenElement.target = '_blank';
+              hiddenElement.download = 'searchresults.xml';
+              hiddenElement.click();
+
+
+          }
+      </script>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 355 Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Course
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" target="_blank"
+                            href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanFall2019">Zybook</a>
+                        <a class="dropdown-item" target="_blank"
+                            href="https://app.tophat.com/e/648883/lecture/">TopHat</a>
+                        <a class="dropdown-item" target="_blank"
+                            href="https://drive.google.com/drive/u/0/folders/1AsHhIFfQ3yNE_m2z4wswRfKh77K0UH9w">Google
+                            Drive</a>
+                        <a class="dropdown-item" target="_blank" href="https://www.w3schools.com/">W3Cschool</a>
+                        <a class="dropdown-item" target="_blank" href="https://getbootstrap.com/">BootStrap</a>
+                    </div>
+
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Search
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="file.html">File</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="Gsearch.html">Google</a>
+                    </div>
+
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Browser
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item" href="navigator.html">Navigator</a>
+                        <a class="dropdown-item" href="window.html">Window</a>
+                        <a class="dropdown-item" href="screen.html">Screen</a>
+                        <a class="dropdown-item" href="location.html">Location</a>
+                        <a class="dropdown-item" href="geolocation.html">Geolocation</a>
+                    </div>
+
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="developer.html">about me</a>
+                        <a class="dropdown-item" href="contact.html">contact me</a>
+                    </div>
+
+                </li>
+
+
+
+            </ul>
+        </div>
+
+    </nav>
+
+    <div id="searchfield">
+
+        <div class="input-group row">
+            <div class="custom-file col-sm-6">
+                <input type="file" class="custom-file-input form-control-lg p-0" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+
+            <div class="input-group-append col-sm-6">
+                <div class="dropdown">
+                    <button class="btn btn-secondary btn-md dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        choose file to save
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button" onclick="saveAsJson(); return false">save as
+                            JSON</button>
+                        <button class="dropdown-item" type="button" onclick="saveAsCsv(); return false">save as
+                            CSV</button>
+                        <button class="dropdown-item" type="button" onclick="saveAsXml(); return false">save as
+                            XML</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="resultfield"></div>
+
+    <script>
+
+
+        // Add the following code if you want the name of the file appear on select
+        var fileName;
+        var i = 0;
+        $(".custom-file-input").on("change", function () {
+            fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            //console.log(fileName.length)
+            i = fileName.length - 1;
+        });
+
+
+
+        const input = document.querySelector('input[type="file"]');
+        input.addEventListener('change', function (e) {
+            console.log(input.files);
+            const reader = new FileReader();
+            reader.onload = function () {
+                console.log(reader.result);
+
+                if (fileName[i] === "n") {
+                    var res = JSON.parse(reader.result);
+                    var result = res.Result;
+                    var txt = "<input class='form-check-input' type='checkbox' onclick='selectAll(this);'><h5><i><b>select all</b></i></h5></br></br>";
+                    for (let i = 0; i < result.length; i++) {
+                        console.log(result[i].title);
+                        txt += "<input class='form-check-input position-static' type='checkbox' name='foo' id='option" + i + "'><h6>" + result[i].title + "</h6>" + "<a target='_blank' href=" + result[i].url + ">" + result[i].url + "</a>";
+                        txt += "<p>" + result[i].description + "</p>";
+                    }
+                    document.getElementById("resultfield").innerHTML = txt;
+
+
+                } else if (fileName[i] === "v") {
+
+                    var res = reader.result.split('\n');
+                    var txt = "<input class='form-check-input' type='checkbox' onclick='selectAll(this);'><h5><i><b>select all</b></i></h5></br></br>";
+                    for (let i = 0; i < res.length - 1; i++) {
+                        var result = res[i].split(',');
+                        console.log(result[0]);
+                        txt += "<input class='form-check-input position-static' type='checkbox' name='foo' id='option" + i + "'><h6>" + result[0] + "</h6>" + "<a target='_blank' href=" + result[1] + ">" + result[1] + "</a>";
+                        txt += "<p>" + result[2] + "</p>";
+                    }
+                    document.getElementById("resultfield").innerHTML = txt;
+
+
+
+                } else {
+                    var parser, xmlDoc;
+                    parser = new DOMParser();
+                    xmlDoc = parser.parseFromString(reader.result, "text/xml");
+                    var len = xmlDoc.getElementsByTagName("result").length;
+                    var txt = "<input class='form-check-input' type='checkbox' onclick='selectAll(this);'><h5><i><b>select all</b></i></h5></br></br>";
+                    for (let i = 0; i < len; i++) {
+                        txt += "<input class='form-check-input position-static' type='checkbox' name='foo' id='option" + i + "'><h6>" + xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue + "</h6>" + "<a target='_blank' href=" + xmlDoc.getElementsByTagName("url")[i].childNodes[0].nodeValue + ">" + xmlDoc.getElementsByTagName("url")[i].childNodes[0].nodeValue + "</a>";
+                        txt += "<p>" + xmlDoc.getElementsByTagName("description")[i].childNodes[0].nodeValue + "</p>";
+                    }
+                    document.getElementById("resultfield").innerHTML = txt;
+
+                }
+
+
+
+
+            }
+            reader.readAsText(input.files[0]);
+        }, false);
+
+
+
+
+        function selectAll(source) {
+            var options = document.getElementsByClassName("form-check-input");
+            for (var i = 0; i < options.length; i++) {
+                options[i].checked = source.checked;
+            }
+        }
+
+
+        function saveAsJson() {
+            var check = document.getElementsByClassName('form-check-input');
+            var selected = new Array();
+            for (var i = 1; i < check.length; i++) {
+                if (check[i].checked == true) {
+                    selected.push(check[i].id);
+                }
+            }
+
+            if (selected.length == 0) {
+                window.alert("at least choose one result");
+                return;
+            }
+
+            var data = { "Result": [] };
+            for (var i = 0; i < selected.length; i++) {
+                var x = document.getElementById(selected[i]);
+                var title = x.nextElementSibling.innerText;
+                var url = x.nextElementSibling.nextElementSibling.innerText;
+                var desc = x.nextElementSibling.nextElementSibling.nextElementSibling.innerText;
+                data.Result.push({ "title": title, "url": url, "description": desc });
+            }
+            data = JSON.stringify(data)
+
+            console.log(data);
+
+            var hiddenElement = document.createElement('a');
+            hiddenElement.href = 'data:text/json;charset=utf-8,' + encodeURI(data);
+            hiddenElement.target = '_blank';
+            hiddenElement.download = 'searchresults.json';
+            hiddenElement.click();
+        }
+
+        function saveAsCsv() {
+            var check = document.getElementsByClassName('form-check-input');
+            var selected = new Array();
+            for (var i = 1; i < check.length; i++) {
+                if (check[i].checked == true) {
+                    selected.push(check[i].id);
+                }
+            }
+
+            if (selected.length == 0) {
+                window.alert("at least choose one result");
+                return;
+            }
+
+            var data = "";
+            for (var i = 0; i < selected.length; i++) {
+                var x = document.getElementById(selected[i]);
+                var title = x.nextElementSibling.innerText;
+                var url = x.nextElementSibling.nextElementSibling.innerText;
+                var desc = x.nextElementSibling.nextElementSibling.nextElementSibling.innerText;
+                data += '"' + title + '","' + url + '","' + desc + '"' + '\n';
+            }
+
+            console.log(data);
+            var hiddenElement = document.createElement('a');
+            hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(data);
+            hiddenElement.target = '_blank';
+            hiddenElement.download = 'searchresults.csv';
+            hiddenElement.click();
+        }
+
+
+        function saveAsXml() {
+            var check = document.getElementsByClassName('form-check-input');
+            var selected = new Array();
+            for (var i = 1; i < check.length; i++) {
+                if (check[i].checked == true) {
+                    selected.push(check[i].id);
+                }
+            }
+
+            if (selected.length == 0) {
+                window.alert("at least choose one result");
+                return;
+            }
+
+            var data = "<?xml version='1.0' encoding='UTF-8'?>\n<results>\n";
+            for (var i = 0; i < selected.length; i++) {
+                var x = document.getElementById(selected[i]);
+                var title = x.nextElementSibling.innerText;
+                var url = x.nextElementSibling.nextElementSibling.innerText;
+                var desc = x.nextElementSibling.nextElementSibling.nextElementSibling.innerText;
+                data += "<result>\n<title>" + title + "</title>\n<url>" + url + "</url>\n<description>" + desc + "</description>\n</result>\n"
+            }
+            data += "</results>";
+
+            console.log(data);
+
+            var hiddenElement = document.createElement('a');
+            hiddenElement.href = 'data:text/xml;charset=utf-8,' + encodeURI(data);
+            hiddenElement.target = '_blank';
+            hiddenElement.download = 'searchresults.xml';
+            hiddenElement.click();
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+
+</html>
